@@ -58,7 +58,21 @@
         </section>
     </main>
     <script>
-        
+        document.getElementById('deposit-button').addEventListener('click', function () {   // button deposit
+            // console.log('deposit button clicked')
+            const depositInput = document.getElementById('deposit-input');                  // input
+            const depositAmount = depositInput.value;                                       // input value
+            // console.log(depositAmount);
+
+            // deposit total
+            const depositTotal = document.getElementById('deposit-total');                  // h4 deposit
+            const depositTotalText = depositTotal.innerText;                                // h4 text
+            depositTotal.innerText = depositAmount;                                         // h4 text = input value
+            console.log(depositTotalText);
+
+            // clear input field
+            depositInput.value = '';                                                        // clear input field
+        })
     </script>
     <script src="js/1_banking.js"></script>
 </body>

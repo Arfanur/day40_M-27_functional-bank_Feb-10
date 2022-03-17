@@ -25,7 +25,7 @@
                 </div>
                 <div class="bg-green-300 p-8 rounded">
                     <h3 class="text-2xl">Withdraw</h3>
-                    <h4 class="text-4xl">$<span id="withdraw-Total">00</span></h4>
+                    <h4 class="text-4xl">$<span id="withdraw-total">00</span></h4>
                 </div>
                 <div class="bg-yellow-300 p-8 rounded">
                     <h3 class="text-2xl">Balance</h3>
@@ -58,31 +58,7 @@
         </section>
     </main>
     <script>
-        document.getElementById('deposit-button').addEventListener('click', function () {   // button deposit
-            // console.log('deposit button clicked')
-            const depositInput = document.getElementById('deposit-input');  // input
-            const depositAmountText = depositInput.value;                   // input text
-            const depositAmount = parseFloat(depositAmountText);            // input number
-            // console.log(depositAmount);
-
-            // get current deposit
-            const depositTotal = document.getElementById('deposit-total');  // h4 _deposit
-            const depositTotalText = depositTotal.innerText;                // h4 text
-            const previousDepositTotal = parseFloat(depositTotalText);      // h4 number
-            depositTotal.innerText = previousDepositTotal + depositAmount;  // h4 text = h4 text + input value
-            // console.log(depositTotalText);
-
-            // update balance
-            const balanceTotal = document.getElementById('balance-total');  // h4 _balance
-            const balanceTotalText = balanceTotal.innerText;                // h4 text
-            const previousBalanceTotal = parseFloat(balanceTotalText);      // h4 number
-
-            balanceTotal.innerText = previousBalanceTotal + depositAmount;  // h4 number + input number
-
-            // clear input field
-            depositInput.value = '';                                        // clear input field
-
-        })
+      
     </script>
     <script src="js/1_banking.js"></script>
 </body>

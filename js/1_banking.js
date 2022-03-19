@@ -30,7 +30,7 @@ function getInputValue(inputId) {
 }
 
 function updateTotalField(totalFieldId, amount) {
-    debugger;
+    // debugger;
     const totalElement = document.getElementById(totalFieldId);     // h4
     const totalText = totalElement.innerText;                // h4 text
     const previousTotal = parseFloat(totalText);      // h4 number
@@ -38,14 +38,32 @@ function updateTotalField(totalFieldId, amount) {
     totalElement.innerText = previousTotal + amount;  // (h4 number + input number)
 }
 
+function updateBalance(amount, isAdd) {
+    const balanceTotal = document.getElementById('balance-total');  // h4 _balance
+    const balanceTotalText = balanceTotal.innerText;                // h4 text
+    const previousBalanceTotal = parseFloat(balanceTotalText);      // h4 number
+    if (isAdd == true) {
+        balanceTotal.innerText = previousBalanceTotal + amount;  // h4 number + input number
+    }
+    else {
+        balanceTotal.innerText = previousBalanceTotal - amount;  // h4 number + input number
+    }
+}
+
+
 // Deposit handler
 document.getElementById('deposit-button').addEventListener('click', function () {   // button deposit
+
+    const depositAmount = getInputValue('deposit-input');           // return: number
+    updateTotalField('deposit-total', depositAmount);   // return: (h4 number + input number)
+    updateBalance(depositAmount, true);
+
+    
     /* 
     const depositInput = document.getElementById('deposit-input');  // input
     const depositAmountText = depositInput.value;                   // input text
     const depositAmount = parseFloat(depositAmountText);            // input number 
     */
-    const depositAmount = getInputValue('deposit-input');           // return: number
 
     // get and update deposit total
     /* 
@@ -56,15 +74,14 @@ document.getElementById('deposit-button').addEventListener('click', function () 
     depositTotal.innerText = previousDepositTotal + depositAmount;  // h4 text = h4 text + input value 
     */
 
-    updateTotalField('deposit-total', depositAmount);   // return: (h4 number + input number)
 
     // update balance
+    /* 
     const balanceTotal = document.getElementById('balance-total');  // h4 _balance
     const balanceTotalText = balanceTotal.innerText;                // h4 text
     const previousBalanceTotal = parseFloat(balanceTotalText);      // h4 number
-
     balanceTotal.innerText = previousBalanceTotal + depositAmount;  // h4 number + input number
-
+ */
 
 
 });
@@ -72,10 +89,15 @@ document.getElementById('deposit-button').addEventListener('click', function () 
 
 // Withdraw handler
 document.getElementById('withdraw-button').addEventListener('click', function () {    // button _Withdraw
+
+    const withdrawAmount = getInputValue('withdraw-input');             // return: number
+    updateTotalField('withdraw-total', withdrawAmount);     // return: (h4 number + input number)
+    updateBalance(withdrawAmount, false);
+
+
     // const withdrawInput = document.getElementById('withdraw-input'); // input
     // const withdrawInputText = withdrawInput.value;                   // input text
     // const withdrawAmount = parseFloat(withdrawInputText);            // input number
-    const withdrawAmount = getInputValue('withdraw-input');             // return: number
 
     // get and  update withdraw total
     /* 
@@ -86,14 +108,14 @@ document.getElementById('withdraw-button').addEventListener('click', function ()
     withdrawTotal.innerText = previousWithdrawTotal + withdrawAmount;   // h4 number + input number
     */
 
-    updateTotalField('withdraw-total', withdrawAmount);     //  h4 number + input number
 
     // update balance after withdraw
+    /* 
     const balanceTotal = document.getElementById('balance-total');      // h4 _balance
     const balanceTotalText = balanceTotal.innerText;                    // h4 text
     const previousBalanceTotal = parseFloat(balanceTotalText);          // h4 number
 
     balanceTotal.innerText = previousBalanceTotal - withdrawAmount;     // h4 number - input number
-
+ */
 
 });
